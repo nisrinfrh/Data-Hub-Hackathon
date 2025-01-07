@@ -1,0 +1,38 @@
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+file_path = 'SA_Aqar.csv'  # Replace with your file path
+data = pd.read_csv(file_path)
+CL# Step 1: Drop unnecessary columns
+data_cleaned = data.drop(columns=['details'])
+
+# Step 2: Check for missing values
+missing_values = data_cleaned.isnull().sum()
+print("Missing values summary:")
+print(missing_values[missing_values > 0])
+
+# Save the cleaned dataset for reference
+data_cleaned.to_csv('SA_Aqar_cleaned.csv', index=False)
+EAN THE DATA
+
+Detect Outliers
+Using Statistical Methods:
+we will use methods like the Interquartile Range (IQR) to identify extreme values.
+# Calculate Q1 (25th percentile) and Q3 (75th percentile)
+Q1 = data2['size'].quantile(0.25)
+Q3 = data2['size'].quantile(0.75)
+IQR = Q3 - Q1
+
+# Define outlier bounds
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Detect outliers
+outliers1 = data2[(data2['size'] < lower_bound) | (data2['size'] > upper_bound)]
+print(outliers)
+ Handle Outliers
+after i re chech the  data ifid to replace the value with value i found in detailes column
+
